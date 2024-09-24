@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Project {
+struct Project: Hashable {
     var name: String
     var startDate: Date
     var finishDate: Date?

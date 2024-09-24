@@ -11,6 +11,7 @@ struct HeaderView: View {
         // MARK: - Properties
     @Binding var showInfoView: Bool
     @Binding var showGuideView: Bool
+    var isGuideViewShown: Bool = true
     let haptics = UINotificationFeedbackGenerator()
     
     var body: some View {
@@ -37,17 +38,22 @@ struct HeaderView: View {
             
             Spacer()
             
-            Button {
-                self.haptics.notificationOccurred(.success)
-                self.showGuideView.toggle()
-            } label: {
-                Image(systemName: "questionmark.circle")
-                    .font(.system(size: 24, weight: .regular))
+            if self.isGuideViewShown {
+                Button {
+                    self.haptics.notificationOccurred(.success)
+                    self.showGuideView.toggle()
+                } label: {
+                    Image(systemName: "questionmark.circle")
+                        .font(.system(size: 24, weight: .regular))
+                }
+                .accentColor(Color.primary)
+                .sheet(isPresented: $showGuideView, content: {
+                    GuideView()
+                })
+            } else {
+                Spacer()
+                    .frame(width: 28)
             }
-            .accentColor(Color.primary)
-            .sheet(isPresented: $showGuideView, content: {
-                GuideView()
-            })
         }
         .padding()
     }
@@ -57,5 +63,5 @@ struct HeaderView: View {
     @Previewable @State var showInfo: Bool = false
     @Previewable @State var showGuide: Bool = false
     
-    return HeaderView(showInfoView: $showInfo, showGuideView: $showGuide)
+    return HeaderView(showInfoView: $showInfo, showGuideView: $showGuide, isGuideViewShown: true)
 }

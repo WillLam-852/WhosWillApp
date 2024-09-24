@@ -12,5 +12,7 @@ struct TitleModifier: ViewModifier {
         content
             .font(.largeTitle)
             .foregroundStyle(Color.black)
+            .fontWeight(.bold)
+            .padding(.bottom, 10)
     }
 }

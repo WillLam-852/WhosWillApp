@@ -14,7 +14,7 @@ struct ProfileView: View {
 
     var body: some View {
         VStack {
-            HeaderView(showInfoView: $showInfo, showGuideView: $showGuide)
+            HeaderView(showInfoView: $showInfo, showGuideView: $showGuide, isGuideViewShown: false)
             
             Spacer()
             
@@ -26,6 +26,11 @@ struct ProfileView: View {
                             .font(.largeTitle)
                             .fontWeight(.bold)
                         Spacer()
+                        
+                        Image("profile")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
                     }
                     .padding(.top, 20)
                     
@@ -34,26 +39,14 @@ struct ProfileView: View {
                         .font(.headline)
                         .foregroundColor(.secondary)
                     
-                        // Profile Summary
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("🔥 An enthusiastic developer with over 10 years of expertise in software development (Started coding when I was 15...)")
-                            .font(.body)
-                        Text("📱 Specialized in mobile app development (iOS / Hybrid). I love Apple ecosystem!!!")
-                            .font(.body)
-                        Text("🌱 Continuously learning how to build scalable software with clean and high-quality code.")
-                            .font(.body)
-                        Text("👀 Interested in mobile app development, UI/UX design, AI, IoT solutions, fintech... any latest trend of technology.")
-                            .font(.body)
-                        Text("💞️ Looking to collaborate on any innovative applications and projects. Please contact me.")
-                            .font(.body)
-                        Text("⚡ Fun fact: I love Pokémon!")
-                            .font(.body)
-                    }
+                    Spacer()
+
+                    SessionRowComponent(title: "About Me", texts: ProfileData.aboutMe)
                     
                         // Quote
                     HStack {
                         Spacer()
-                        Text("“Love what you do. Do what you love!”")
+                        Text(ProfileData.quote)
                             .font(.title2)
                             .fontWeight(.semibold)
                             .italic()
@@ -62,15 +55,40 @@ struct ProfileView: View {
                     .padding(.vertical, 20)
                     
                     Spacer()
+                    
+                    SessionRowComponent(title: "Mobile App Development", textWithIcons: ProfileData.mobileAppDevelopmentSkills.map { $0.converttoTextWithIcon() } )
+                    
+                    Spacer()
+
+                    SessionRowComponent(title: "Web Frontend Development", textWithIcons: ProfileData.webFrontendDevelopmentSkills.map { $0.converttoTextWithIcon() } )
                 }
                 .padding()
-                .background(
-                    LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom)
-                        .edgesIgnoringSafeArea(.all)
-                )
-                .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
+                
+                Spacer()
+                
+                Text("Educational Background")
+                    .modifier(TitleModifier())
+    
+                VStack(alignment: .leading, spacing: 20) {
+                    SessionCardView(
+                        backgroundColor: Color.blue,
+                        title: educationData[0].organizationName,
+                        subtitle: educationData[0].position,
+                        subheadline: "\(educationData[0].startDate.toMMMMyyyyString()) - Present",
+                        bodys: educationData[0].descriptions
+                    )
+                    
+                    SessionCardView(
+                        backgroundColor: Color.green,
+                        title: educationData[1].organizationName,
+                        subtitle: educationData[1].position,
+                        subheadline: "Class of 2021",
+                        bodys: educationData[1].descriptions
+                    )
+                }
             }
+            
         }
     }
 }

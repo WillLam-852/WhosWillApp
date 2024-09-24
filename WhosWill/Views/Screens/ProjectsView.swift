@@ -15,10 +15,17 @@ struct ProjectsView: View {
     var body: some View {
         // MARK: - Header
         HeaderView(showInfoView: $showInfo, showGuideView: $showGuide)
-        
+
         Spacer()
-        
-        CardView(project: projectsData[0])
+
+        TabView {
+            ForEach(projectsData, id: \.self) { project in
+                CardView(project: project)
+                    .padding(.horizontal, 10)
+            }
+        }
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+        .background(Color.black.opacity(0.2))
     }
 }
 

@@ -16,6 +16,9 @@ enum TechStack {
     case ReactNative
     case Angular
     case Vue
+    case Flutter
+    case HTML
+    case CSS
     
     var name: String {
         switch self {
@@ -29,6 +32,31 @@ enum TechStack {
             case .ReactNative: return "React Native"
             case .Angular: return "Angular"
             case .Vue: return "Vue"
+            case .Flutter: return "Flutter"
+            case .HTML: return "HTML"
+            case .CSS: return "CSS"
         }
+    }
+    
+    var imageName: String? {
+        switch self {
+            case .Swift: return "Swift"
+            case .SwiftUI: return "SwiftUI"
+            case .Kotlin: return "Kotlin"
+            case .Java: return "Java"
+            case .JavaScript: return "JavaScript"
+            case .TypeScript: return "TypeScript"
+            case .React: return "React"
+            case .ReactNative: return "ReactNative"
+            case .Angular: return "Angular"
+            case .Vue: return "Vue"
+            case .Flutter: return "Flutter"
+            case .HTML: return "HTML"
+            case .CSS: return "css"
+        }
+    }
+        
+    func converttoTextWithIcon() -> TextWithIcon {
+        TextWithIcon(self.name, imageName: self.imageName)
     }
 }

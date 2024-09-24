@@ -15,7 +15,7 @@ struct CardView: View, Identifiable {
         VStack {
             Image(project.imageName)
                 .resizable()
-                .addBorder(Color.white, cornerRadius: 24)
+                .addBorder(Color.clear, cornerRadius: 24)
                 .scaledToFit()
                 .frame(minWidth: 0, maxWidth: .infinity)
             
@@ -33,17 +33,19 @@ struct CardView: View, Identifiable {
                         alignment: .bottom
                     )
                 
-                ForEach(project.tags, id: \.self) { tag in
-                    Text(tag.name)
-                        .foregroundStyle(Color.white)
-                        .font(.footnote)
-                        .fontWeight(.bold)
-                        .frame(minWidth: 85)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 5)
-                        .background(
-                            Capsule().fill(Color.blue)
-                        )
+                HStack {
+                    ForEach(project.tags, id: \.self) { tag in
+                        Text(tag.name)
+                            .foregroundStyle(Color.white)
+                            .font(.footnote)
+                            .fontWeight(.bold)
+                            .frame(minWidth: 85)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .background(
+                                Capsule().fill(Color.blue)
+                            )
+                    }
                 }
             }
             .frame(minWidth: 280)

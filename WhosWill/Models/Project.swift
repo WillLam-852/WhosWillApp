@@ -15,5 +15,5 @@ struct Project: Hashable {
     var category: ProjectCategory
     var tags: [TechStack]
     var imageName: String
-    var githubLink: String
+    var githubLink: String?
 }

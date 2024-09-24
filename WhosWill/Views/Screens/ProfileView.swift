@@ -14,7 +14,7 @@ struct ProfileView: View {
 
     var body: some View {
         VStack {
-            HeaderView(showInfoView: $showInfo, showGuideView: $showGuide, isGuideViewShown: false)
+            HeaderView(showInfoView: $showInfo)
             
             Spacer()
             
@@ -56,18 +56,18 @@ struct ProfileView: View {
                     
                     Spacer()
                     
-                    SessionRowComponent(title: "Mobile App Development", textWithIcons: ProfileData.mobileAppDevelopmentSkills.map { $0.converttoTextWithIcon() } )
+                    SessionRowComponent(title: "Mobile App", textWithIcons: ProfileData.mobileAppDevelopmentSkills.map { $0.converttoTextWithIcon() } )
                     
                     Spacer()
 
-                    SessionRowComponent(title: "Web Frontend Development", textWithIcons: ProfileData.webFrontendDevelopmentSkills.map { $0.converttoTextWithIcon() } )
+                    SessionRowComponent(title: "Web Frontend", textWithIcons: ProfileData.webFrontendDevelopmentSkills.map { $0.converttoTextWithIcon() } )
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
                 
                 Spacer()
                 
-                Text("Educational Background")
+                Text("Education")
                     .modifier(TitleModifier())
     
                 VStack(alignment: .leading, spacing: 20) {

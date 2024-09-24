@@ -10,22 +10,34 @@ import SwiftUI
 struct ProjectsView: View {
     // MARK: - Properties
     @State var showInfo: Bool = false
-    @State var showGuide: Bool = false
+    @State var showDetails: Bool = false
+    let haptics = UINotificationFeedbackGenerator()
 
     var body: some View {
         // MARK: - Header
-        HeaderView(showInfoView: $showInfo, showGuideView: $showGuide)
+        HeaderView(showInfoView: $showInfo)
 
         Spacer()
 
         TabView {
             ForEach(projectsData, id: \.self) { project in
-                CardView(project: project)
-                    .padding(.horizontal, 10)
+                Button {
+                    self.haptics.notificationOccurred(.success)
+                    self.showDetails.toggle()
+                } label: {
+                    CardView(project: project)
+                        .padding(.horizontal, 10)
+                }
+                .sheet(isPresented: $showDetails, content: {
+                    ProjectDetailView(project: project)
+                })
             }
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
-        .background(Color.black.opacity(0.2))
+        .foregroundStyle(Color.black)
+        .background(Color.black.opacity(0.1))
+        .tabViewStyle(.page)
+        
+        Spacer()
     }
 }
 

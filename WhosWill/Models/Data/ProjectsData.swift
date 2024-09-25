@@ -9,16 +9,6 @@ import Foundation
 
 let projectsData: [Project] = [
     Project(
-        name: "Air Guitar",
-        startDate: Date.create(year: 2018, month: 6, day: 1),
-        finishDate: Date.create(year: 2018, month: 9, day: 30),
-        description: "AirGuitar is an iOS application developed using Swift. It simulates a guitar by detecting users' strumming motions via the iPhone's inertial measurement unit (IMU) to produce realistic guitar sounds.",
-        category: .iOS,
-        tags: [.Swift],
-        imageName: "AirGuitar",
-        githubLink: "https://github.com/WillLam-852/AirGuitar"
-    ),
-    Project(
         name: "Smart Rehab",
         startDate: Date.create(year: 2021, month: 6, day: 1),
         finishDate: Date.create(year: 2024, month: 7, day: 31),
@@ -26,7 +16,24 @@ let projectsData: [Project] = [
         category: .fullStack,
         tags: [.Swift, .ReactNative],
         imageName: "SmartRehab",
-        githubLink: nil
+        githubLink: nil,
+        websiteLink: "https://www.remobility.net/smartrehab",
+        youtubeLink: "https://www.youtube.com/watch?v=__H1npmoCbA",
+        company: "Remobility Limited",
+        position: "Senior Software Engineer",
+        screenShots: []
+    ),
+    Project(
+        name: "Air Guitar",
+        startDate: Date.create(year: 2018, month: 6, day: 1),
+        finishDate: Date.create(year: 2018, month: 9, day: 30),
+        description: "AirGuitar is an iOS application developed using Swift. It simulates a guitar by detecting users' strumming motions via the iPhone's inertial measurement unit (IMU) to produce realistic guitar sounds.",
+        category: .iOS,
+        tags: [.Swift],
+        imageName: "AirGuitar",
+        githubLink: "https://github.com/WillLam-852/AirGuitar",
+        screenShots: []
+        
     ),
     Project(
         name: "Honeymoon",
@@ -36,7 +43,8 @@ let projectsData: [Project] = [
         category: .iOS,
         tags: [.SwiftUI],
         imageName: "Honeymoon",
-        githubLink: "https://github.com/WillLam-852/Honeymoon_ios"
+        githubLink: "https://github.com/WillLam-852/Honeymoon_ios",
+        screenShots: []
     ),
     Project(
         name: "Delivery",
@@ -46,6 +54,7 @@ let projectsData: [Project] = [
         category: .iOS,
         tags: [.SwiftUI],
         imageName: "Delivery",
-        githubLink: "https://github.com/WillLam-852/Delivery_ios"
+        githubLink: "https://github.com/WillLam-852/Delivery_ios",
+        screenShots: []
     )
 ]

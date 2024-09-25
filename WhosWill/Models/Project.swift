@@ -16,4 +16,9 @@ struct Project: Hashable {
     var tags: [TechStack]
     var imageName: String
     var githubLink: String?
+    var websiteLink: String?
+    var youtubeLink: String?
+    var company: String?
+    var position: String?
+    var screenShots: [String]
 }

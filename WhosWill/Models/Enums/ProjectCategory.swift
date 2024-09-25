@@ -11,4 +11,14 @@ enum ProjectCategory {
     case web
     case backend
     case fullStack
+    
+    var name: String {
+        switch self {
+            case .iOS: return "iOS"
+            case .android: return "Android"
+            case .web: return "Web"
+            case .backend: return "Backend"
+            case .fullStack: return "Full Stack"
+        }
+    }
 }

@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@" : {
+
+    },
     "• %@" : {
 
     },
@@ -11,6 +14,9 @@
 
     },
     "App Info" : {
+
+    },
+    "Category: %@" : {
 
     },
     "Contacts" : {
@@ -31,10 +37,22 @@
         }
       }
     },
+    "Description" : {
+
+    },
     "Education" : {
 
     },
+    "Finish: %@" : {
+
+    },
+    "GitHub Repository" : {
+
+    },
     "Hello, World!" : {
+
+    },
+    "In Progress" : {
 
     },
     "Profile" : {
@@ -72,6 +90,12 @@
           }
         }
       }
+    },
+    "Start: %@" : {
+
+    },
+    "Website" : {
+
     }
   },
   "version" : "1.0"

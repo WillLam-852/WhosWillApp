@@ -36,15 +36,7 @@ struct CardView: View, Identifiable {
                 HStack {
                     ForEach(project.tags, id: \.self) { tag in
                         Text(tag.name)
-                            .foregroundStyle(Color.white)
-                            .font(.footnote)
-                            .fontWeight(.bold)
-                            .frame(minWidth: 85)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 5)
-                            .background(
-                                Capsule().fill(Color.blue)
-                            )
+                            .modifier(TagModifier())
                     }
                 }
             }

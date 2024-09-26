@@ -22,11 +22,10 @@ struct MainView: View {
             }
             .customizationID(Tabs.projects.customizationID)
             
-//            Tab(Tabs.contacts.name, systemImage: Tabs.contacts.symbol, value: .contacts) {
-//                ContactsView()
-//            }
-//            .customizationID(Tabs.contacts.customizationID)
-
+            Tab(Tabs.contacts.name, systemImage: Tabs.contacts.symbol, value: .contacts) {
+                ContactsView()
+            }
+            .customizationID(Tabs.contacts.customizationID)
         }
     }
 }

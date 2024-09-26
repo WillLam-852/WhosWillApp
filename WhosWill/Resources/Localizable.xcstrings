@@ -19,6 +19,9 @@
     "Category: %@" : {
 
     },
+    "Contact Me" : {
+
+    },
     "Contacts" : {
       "comment" : "Tab title",
       "extractionState" : "manual",
@@ -47,9 +50,6 @@
 
     },
     "GitHub Repository" : {
-
-    },
-    "Hello, World!" : {
 
     },
     "In Progress" : {
